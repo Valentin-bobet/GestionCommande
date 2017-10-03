@@ -21,12 +21,14 @@ describe("Commande",() =>{
         let produit1;
         let produit2;
         let produit3;
+        let produit4;
 
         before(function () {
             commande2 = new Commande(1,"08-01-1998");
             produit1 = new Produit("Babare le Barbare", 2000);
             produit2 = new Produit("the StormTroopers",3);
             produit3 = new Produit("Kenny le pas survivant",98);
+            produit4 = new Produit("Satanas et Diaboulo",0);
         });
 
         afterEach(function () {
@@ -65,6 +67,12 @@ describe("Commande",() =>{
         it("ILS ONT BUTES KENNY ESPECE D'ENFOIRE",() => {
             commande2.ajouterLigne(produit3,0);
             assert.equal(commande2.lignes.length,0,"AHH DES KENNY FANTOMES!!");
-        })
+        });
+
+        it("Satanas et Diabloulo n'existent pas",() => {
+            commande2.ajouterLigne(produit4,5);
+            assert.equal(commande2.lignes.length,0,"Ah ils ont encore trichés");
+        });
+
     });
 });
